@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect } from "react";
 import {
   OrbitControls,
   Environment,
@@ -8,6 +8,8 @@ import {
 import { Canvas } from "@react-three/fiber";
 // import { Html, useProgress } from "@react-three/drei";
 // import { MeshReflectorMaterial } from "./drei/MeshReflectorMaterial";
+// import LargeCortexModel from "./LargeCortexModel";
+
 import CortexModelGLB from "./CortexModelGLB";
 
 // function Loader() {
@@ -15,31 +17,23 @@ import CortexModelGLB from "./CortexModelGLB";
 //   return <Html center>{progress} % loaded</Html>;
 // }
 
-export function CortexShowDown(props) {
+export function LargeCortexShowDown(props) {
+
+  // useEffect(() => {
+  //   AFRAME.scenes[0].renderer.renderLists.dispose()
+  // }, [])
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "center",
         elignItem: "center",
-        height: "55vh",
-        width: "45vw",
+        height: "57vh",
+        width: "47vw",
       }}
     >
-      {/* <Canvas camera={{ position: [10, 18, 23], fov: 0.5 }}>
-        <pointLight position={[10, 10, 10]} intensity={1.3} />
-        <ambientLight intensity={0.2} />
-        <ambientLight intensity={0.1} />
-        <directionalLight intensity={0.4} />
-        <Suspense fallback={null}>
-          <CortexModel/>
-        </Suspense>
-        <OrbitControls makeDefault />
-        <TransformControls mode="translate" />
-      </Canvas> */}
-
       <Canvas camera={{ position: [10, 18, 23], fov: 0.6 }}>
-        <pointLight position={[8, 8, 8]} intensity={1.3} />
+        <pointLight position={[10, 10, 10]} intensity={1.3} />
         {/* <spotLight
           position={[10, 10, 10]}
           angle={0.7}
@@ -48,8 +42,8 @@ export function CortexShowDown(props) {
           castShadow
         /> */}
         <ambientLight intensity={0.2} />
-        <ambientLight intensity={0.1} />
-        <directionalLight intensity={0.4} />
+        {/* <ambientLight intensity={0.1} /> */}
+        {/* <directionalLight intensity={0.4} /> */}
         <Suspense fallback={null}>
           <CortexModelGLB />
         </Suspense>
